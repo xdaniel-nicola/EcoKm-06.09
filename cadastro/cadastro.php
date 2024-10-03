@@ -13,6 +13,8 @@
         <?php
         var_dump($_GET);
         ?>
+
+        <a href="../login/login.html">Voltar para login</a>
     </main>
 </body>
 </html>
