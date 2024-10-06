@@ -57,7 +57,7 @@ body{
 }
 .conteudo{
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "nome endereco"
         "cpf bairro"
@@ -66,7 +66,7 @@ body{
         "celular2 senha"
         "data_de_nascimento confirmaSenha"
         "nomeMae sexo"
-        "cep ."; /* O ponto (.) representa um espaço vazio */
+        "cep .";
 
     margin-left: 60px;
     padding: 20px 0;
@@ -122,7 +122,7 @@ button{
 #enviar:hover{
     background-color: #ffb84d;
 }
-.rodape a {
+/* .rodape a {
     background-color: #0a9fc4;
     border: none;
     height: 10px;
@@ -136,7 +136,7 @@ button{
     margin: 10px;
     font-style: bold;
     border-radius: 10px;
-}
+} */
 .limpar{
     margin-top: 30px;
     width: 210px;
@@ -218,22 +218,26 @@ form{
     justify-content: right;
     position: absolute;
 }
-@media screen and (max-width: 840px) {
-    .telaCadastro{
-        size-adjust: 100vh;
-        display: grid;
-        grid-template-columns: 2;
+
+@media screen and (max-width: 768px) {
+    .conteudo {
+        display:block;
+        margin-left: 40px;
     }
-    .inputs{
-        display: grid;
-        grid-column-start: 1;
-        grid-column-end: 3;
+    .card {
+        display: block;
+        width: 300px;
+        height: 1500px;
     }
-    .card{
-        size-adjust: 100vh;
-        position: absolute;
+    .rodape{
+        display:block;
+        align-items: center;
     }
-    .card-header{
-        size-adjust: 100vh;
+    #enviar {
+        display:flex;   
+        align-items: flex-start;
+        margin: 0 0 0 0;
+        padding: 0; 
+        margin-right: 13vw;
     }
 }

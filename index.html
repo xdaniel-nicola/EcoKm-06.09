@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cime">
+    <header class="cima">
         <nav class="menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -29,20 +29,20 @@
             <h1>Calculadora de Gasto de Combustível</h1>
             <form id="form-carro">
                 <label for="modelo-carro">Modelo do Motor:</label>
-                <select id="modelo-carro"></select>
+                <select class="selecao" id="modelo-carro"></select>
 
                 <label for="tipo-combustivel">Tipo de Combustível:</label>
-                <select id="tipo-combustivel">
+                <select class="selecao" id="tipo-combustivel">
                     <option value="10">Gasolina</option>
                     <option value="8">Etanol</option>
                     <option value="15">GNV</option>
                 </select>
 
                 <label for="distancia">Distância (em km):</label>
-                <input type="number" id="distancia" required>
+                <input class="selecao" type="number" id="distancia" required>
 
                 <label for="preco-combustivel">Preço do Combustível (R$):</label>
-                <input type="number" id="preco-combustivel" step="0.01" required>
+                <input class="selecao" type="number" id="preco-combustivel" step="0.01" required>
 
                 <button type="button" onclick="calcularCombustivel()">Calcular</button>
             </form>
