@@ -298,7 +298,7 @@ cep.addEventListener('focusout', async () => {
      endereco.value = responseCep.logradouro;
      bairro.value = responseCep.bairro;
      cidade.value = responseCep.localidade;
-})
+    }) 
 // VALIDAÇÃO /\ //
 // MASCARAS \/ //
 
@@ -357,16 +357,4 @@ cep.addEventListener('keypress', () => {
 
     if (ceplength === 5)
         cep.value += '-'
-})
-cep.addEventListener('focusout', async () => {
-
-const response = await fetch (`https://viacep.com.br/ws/${cep.value}/json/`);
-
-if(!response.ok) {
-    throw await response.json();
-}
- const responseCep = await response.json();
- endereco.value = responseCep.logradouro;
- bairro.value = responseCep.bairro;
- cidade.value = responseCep.localidade;
 })
