@@ -77,6 +77,22 @@
         spans[index].style.display = 'none';
     }
 
+    campos[0].addEventListener('input', nameValidate);
+    campos[1].addEventListener('input', emailValidate);
+    campos[2].addEventListener('input', cpfValidate);
+    campos[3].addEventListener('input', () => celularValidate(3));
+    campos[5].addEventListener('input', () => celularValidate(5));
+    campos[4].addEventListener('input', dateValidate);
+    campos[6].addEventListener('input', cepValidate);
+    campos[7].addEventListener('input', nomeMaeValidate);
+    campos[8].addEventListener('input', enderecoValidate);
+    campos[9].addEventListener('input', loginValidate);
+    campos[10].addEventListener('input', cidadeValidate);
+    campos[11].addEventListener('input', mainPasswordValidate);
+    campos[12].addEventListener('input', bairroValidate);
+    campos[13].addEventListener('input', comparePassword);
+    campos[14].addEventListener('input', sexoValidate);
+    
     function nameValidate() {
         if (!nomeRegex.test(campos[0].value.trim())) {
             setError(0);
@@ -98,13 +114,42 @@
     }
 
     function cpfValidate() {
-        if (!cpfRegex.test(campos[2].value.trim())) {
+        const cpf = campos[2].value.trim();
+        
+        if (!cpfRegex.test(cpf)) {
             setError(2);
             return false;
         } else {
+            const cpfNumbers = cpf.replace(/[^\d]+/g, '');
+            
+            if (!validateCpfDigits(cpfNumbers)) {
+                setError(2);
+                return false;
+            }
+    
             removeError(2);
             return true;
         }
+    }
+    
+    function validateCpfDigits(cpf) {
+        let sum = 0;
+        for (let i = 0; i < 9; i++) {
+            sum += parseInt(cpf.charAt(i)) * (10 - i);
+        }
+    
+        let firstDigit = 11 - (sum % 11);
+        if (firstDigit >= 10) firstDigit = 0;
+    
+        sum = 0;
+        for (let i = 0; i < 10; i++) {
+            sum += parseInt(cpf.charAt(i)) * (11 - i);
+        }
+    
+        let secondDigit = 11 - (sum % 11);
+        if (secondDigit >= 10) secondDigit = 0;
+    
+        return cpf.charAt(9) == firstDigit && cpf.charAt(10) == secondDigit;
     }
 
     function celular1Validate() {
@@ -241,6 +286,18 @@
             return true;
         }
     }
+})
+cep.addEventListener('focusout', async () => {
+
+    const response = await fetch (`https://viacep.com.br/ws/${cep.value}/json/`);
+    
+    if(!response.ok) {
+        throw await response.json();
+    }
+     const responseCep = await response.json();
+     endereco.value = responseCep.logradouro;
+     bairro.value = responseCep.bairro;
+     cidade.value = responseCep.localidade;
 })
 // VALIDAÇÃO /\ //
 // MASCARAS \/ //

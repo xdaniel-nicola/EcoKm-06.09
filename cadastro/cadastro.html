@@ -55,7 +55,7 @@
                     </div>
                     <div class="cep">
                         <label for="cep">CEP:</label>
-                        <input class="inputs" maxlength="9" type="text" name="cep" id="cep" placeholder="00000-000" oninput="cepValidate()">
+                        <input class="inputs" maxlength="9" type="text" name="cep" id="cep" placeholder="00000-000" oninput="cepValidate()" onchange="validarCamposPreenchidosPelaApi()">
                         <span class="span-required">Digite um CEP válido.</span>
                     </div>
                     <div class="nomeMae">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="endereco">
                         <label for="endereco">Endereço:</label>
-                        <input class="inputs" maxlength="18" type="text" name="endereco" id="endereco" placeholder="Rua, Estrada, Avenida.." oninput="enderecoValidate()">
+                        <input class="inputs" maxlength="18" type="text" name="endereco" id="endereco" placeholder="Rua, Estrada, Avenida.." oninput="enderecoValidate()" onchange="enderecoValidate()">
                         <span class="span-required">O endereço deve ter no mínimo 3 caracteres.</span>
                     </div>
                     <div class="login">
@@ -75,7 +75,7 @@
                     </div>
                     <div>
                         <label for="cidade">Cidade:</label>
-                        <input class="inputs" type="text" id="cidade" name="cidade" placeholder="Cidade" oninput="cidadeValidate()">
+                        <input class="inputs" type="text" id="cidade" name="cidade" placeholder="Cidade" oninput="cidadeValidate()" onchange="cidadeValidate()">
                         <span class="span-required">A cidade deve ter no mínimo 2 caracteres.</span>
                     </div>
                     <div class="senha">
@@ -85,7 +85,7 @@
                     </div>
                     <div class="bairro">
                         <label for="bairro">Bairro: </label>
-                        <input class="inputs" name="bairro" id="bairro" type="text" placeholder="Bairro" oninput="bairroValidate()">
+                        <input class="inputs" name="bairro" id="bairro" type="text" placeholder="Bairro" oninput="bairroValidate()" onchange="bairroValidate()">
                         <span class="span-required">O bairro deve ter no mínimo 3 caracteres.</span>
                     </div> 
                     <div class="confirmaSenha">
